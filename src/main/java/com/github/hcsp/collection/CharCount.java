@@ -44,24 +44,8 @@ public class CharCount {
     public int howManyCharsInCommon(CharCount anotherCharCount) {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
-        int count = 0;
-//        theirChars.retainAll(myChars);
-        for (Character c : myChars
-             ) {
-            if (theirChars.contains(c)){
-                count += 1;
-            }
-        }
-        return count;
-    }
 
-    public static void main(String[] args) {
-        CharCount charCount1 = new CharCount("aabbcc");
-        CharCount charCount2 = new CharCount("bcd");
-        System.out.println(charCount1.count('b'));
-        System.out.println(charCount1.count('d'));
-        System.out.println(charCount2.count('b'));
-        System.out.println(charCount2.count('c'));
-        System.out.println(charCount2.count('d'));
+        theirChars.retainAll(myChars);
+        return theirChars.size();
     }
 }
