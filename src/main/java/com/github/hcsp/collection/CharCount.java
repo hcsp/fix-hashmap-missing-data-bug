@@ -25,7 +25,6 @@ public class CharCount {
                 charCount.put(ch, 1);
             }
         }
-        System.out.println("charCount = " + charCount);
     }
 
     public int count(char ch) {
@@ -56,10 +55,5 @@ public class CharCount {
         return count;
 //        theirChars.retainAll(myChars);
 //        return theirChars.size();
-    }
-
-    public static void main(String[] args) {
-        CharCount c1 = new CharCount("aabbcc");
-        CharCount c2 = new CharCount("bcd");
     }
 }
