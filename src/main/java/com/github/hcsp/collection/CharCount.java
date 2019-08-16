@@ -25,6 +25,7 @@ public class CharCount {
                 charCount.put(ch, 1);
             }
         }
+        System.out.println("charCount = " + charCount);
     }
 
     public int count(char ch) {
@@ -42,10 +43,23 @@ public class CharCount {
 
     // 我和另外一个CharCount有多少个公共字符？ 例如，aabbcc和abcdef有3个公共字符: a/b/c，因此返回3
     public int howManyCharsInCommon(CharCount anotherCharCount) {
+        int count = 0;
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
 
-        theirChars.retainAll(myChars);
-        return theirChars.size();
+        for (Character c: theirChars) {
+            if (myChars.contains(c)) {
+                count++;
+            }
+        }
+
+        return count;
+//        theirChars.retainAll(myChars);
+//        return theirChars.size();
+    }
+
+    public static void main(String[] args) {
+        CharCount c1 = new CharCount("aabbcc");
+        CharCount c2 = new CharCount("bcd");
     }
 }
