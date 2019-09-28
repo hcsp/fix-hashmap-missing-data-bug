@@ -45,7 +45,14 @@ public class CharCount {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
 
-        theirChars.retainAll(myChars);
-        return theirChars.size();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Character character : theirChars) {
+            stringBuilder.append(character);
+        }
+        CharCount tempCharCount = new CharCount(stringBuilder.toString());
+        // theirChars.retainAll(myChars) 改变了 anotherCharCount
+        Set<Character> resultSet = tempCharCount.chars();
+        resultSet.retainAll(myChars);
+        return resultSet.size();
     }
 }
