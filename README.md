@@ -1,6 +1,6 @@
 # Collection: 修复HashMap莫名其妙的数据丢失问题
 
-小明写了一个[`CharCount`](https://github.com/hcsp/fix-hashmap-missing-data-bug/blob/master/src/main/java/com/github/hcsp/collection/CharCount.java)用于统计字符串中字符的数量。现在不知道为什么测试失败了。隔壁老王告诉他`CharCount`里面有一个bug。
+小明写了一个[`CharCount`](https://github.com/hcsp/fix-hashmap-missing-data-bug/blob/master/src/main/java/com/github/hcsp/collection/CharCount.java)用于统计字符串中字符的数量。现在不知道为什么测试失败了。隔壁老王告诉他`CharCount`类里面有一个bug。
 
 请帮助小明找到并修复这个bug。
 
