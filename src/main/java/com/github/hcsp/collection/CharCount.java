@@ -1,6 +1,7 @@
 package com.github.hcsp.collection;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -44,8 +45,8 @@ public class CharCount {
     public int howManyCharsInCommon(CharCount anotherCharCount) {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
-
-        theirChars.retainAll(myChars);
-        return theirChars.size();
+        Set<Character> theirCharsCopy = new HashSet<>(theirChars);
+        theirCharsCopy.retainAll(myChars);
+        return theirCharsCopy.size();
     }
 }
