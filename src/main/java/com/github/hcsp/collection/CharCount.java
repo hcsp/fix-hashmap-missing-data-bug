@@ -45,13 +45,7 @@ public class CharCount {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
 
-        int size = 0;
-        for (Character theirchar : theirChars) {
-            if (myChars.contains(theirchar)) {
-                size += 1;
-            }
-        }
-
-        return size;
+        theirChars.retainAll(myChars);
+        return theirChars.size();
     }
 }
