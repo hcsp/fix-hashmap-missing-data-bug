@@ -1,7 +1,6 @@
 package com.github.hcsp.collection;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -46,9 +45,7 @@ public class CharCount {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
 
-        Set<Character> tempSet = new HashSet<>();
-        tempSet.addAll(theirChars);
-        tempSet.retainAll(myChars);    // AbstractCollection 中的 retainAll 会改变参数穿进来的 anotherCharCount
-        return tempSet.size();          // 把 anotherCharCount 中不是myChars共有的元素 去除，
+        theirChars.retainAll(myChars);
+        return theirChars.size();
     }
 }
