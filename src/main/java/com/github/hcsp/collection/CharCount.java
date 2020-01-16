@@ -44,8 +44,12 @@ public class CharCount {
     public int howManyCharsInCommon(CharCount anotherCharCount) {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
-
-        theirChars.retainAll(myChars);
-        return theirChars.size();
+        int count = 0;
+        for (Character c : myChars) {
+            if (theirChars.contains(c)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
