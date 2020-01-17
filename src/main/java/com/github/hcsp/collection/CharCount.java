@@ -1,6 +1,8 @@
 package com.github.hcsp.collection;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class CharCount {
     /**
@@ -42,13 +44,8 @@ public class CharCount {
     public int howManyCharsInCommon(CharCount anotherCharCount) {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
-        int commonChar = 0;
-        for (Character c : myChars) {
-            if (theirChars.contains(c)) {
-                commonChar++;
-            }
-        }
-        return commonChar;
-    }
 
+        theirChars.retainAll(myChars);
+        return theirChars.size();
+    }
 }
