@@ -1,8 +1,6 @@
 package com.github.hcsp.collection;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class CharCount {
     /**
@@ -37,7 +35,7 @@ public class CharCount {
      * @return 包含的所有字符集合
      */
     public Set<Character> chars() {
-        return charCount.keySet();
+        return new HashSet<>(charCount.keySet());
     }
 
     // 我和另外一个CharCount有多少个公共字符？ 例如，aabbcc和abcdef有3个公共字符: a/b/c，因此返回3
