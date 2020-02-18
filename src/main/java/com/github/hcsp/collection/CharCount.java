@@ -1,43 +1,10 @@
 package com.github.hcsp.collection;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 public class CharCount {
-//    private final Map<Character, Integer> charcount = new HashMap<>();
-//
-//    public CharCount(String s) {
-//        for (int i = 0; i < s.length(); i++) {
-//            char ch = s.charAt(i);
-//            if (charcount.containsKey(ch)) {
-//                charcount.put(ch, charcount.get(ch) + 1);
-//            } else {
-//                charcount.put(ch, 1);
-//            }
-//        }
-//    }
-//
-//    public int count(char ch) {
-//        return charcount.getOrDefault(ch, 0);
-//    }
-//
-//    public Set<Character> chars() {
-//        return charcount.keySet();
-//    }
-//
-//    public int howManyCharsInCommon(CharCount anotherCharCount) {
-//        Set<Character> myChars = chars();
-//        Set<Character> theirChars = new HashSet<>(anotherCharCount.chars());
-//        theirChars.retainAll(myChars);
-//        return theirChars.size();
-//    }
-
-    public static void main(String[] args) {
-
-    }
-
     /**
      * 保存字符到其出现次数的映射。例如，aabbc这个字符串中，这个Map的值就是
      *
@@ -76,7 +43,7 @@ public class CharCount {
     // 我和另外一个CharCount有多少个公共字符？ 例如，aabbcc和abcdef有3个公共字符: a/b/c，因此返回3
     public int howManyCharsInCommon(CharCount anotherCharCount) {
         Set<Character> myChars = chars();
-        Set<Character> theirChars = new HashSet<>(anotherCharCount.chars());
+        Set<Character> theirChars = anotherCharCount.chars();
 
         theirChars.retainAll(myChars);
         return theirChars.size();
