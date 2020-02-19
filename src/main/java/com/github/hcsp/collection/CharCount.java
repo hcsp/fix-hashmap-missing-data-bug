@@ -5,10 +5,9 @@ import java.util.Map;
 import java.util.Set;
 
 public class CharCount {
-
     /**
      * 保存字符到其出现次数的映射。例如，aabbc这个字符串中，这个Map的值就是
-     * <p>
+     *
      * <pre>
      * a -> 2
      * b -> 2
@@ -38,8 +37,7 @@ public class CharCount {
      * @return 包含的所有字符集合
      */
     public Set<Character> chars() {
-        Map<Character, Integer> map = new HashMap<>(charCount);
-        return map.keySet();
+        return charCount.keySet();
     }
 
     // 我和另外一个CharCount有多少个公共字符？ 例如，aabbcc和abcdef有3个公共字符: a/b/c，因此返回3
