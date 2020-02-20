@@ -27,18 +27,6 @@ public class CharCount {
         }
     }
 
-    public static void main(String[] args) {
-        CharCount charCount1 = new CharCount("aabbcc");
-        CharCount charCount2 = new CharCount("bcd");
-        int res = charCount1.howManyCharsInCommon(charCount2);
-        int res1 = charCount2.count('a');
-        int res2 = charCount2.count('c');
-        int res3 = charCount2.count('d');
-
-
-        System.out.println(res1 + "----" + res2 + "----" + res3);
-    }
-
     public int count(char ch) {
         return charCount.getOrDefault(ch, 0);
     }
@@ -56,6 +44,8 @@ public class CharCount {
     public int howManyCharsInCommon(CharCount anotherCharCount) {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
-        return (int) myChars.stream().filter(theirChars::contains).count();
+
+        theirChars.retainAll(myChars);
+        return theirChars.size();
     }
 }
