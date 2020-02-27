@@ -1,8 +1,6 @@
 package com.github.hcsp.collection;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class CharCount {
     /**
@@ -13,7 +11,14 @@ public class CharCount {
      * b -> 2
      * c -> 1
      * </pre>
+     * @param args
      */
+    public static void main(String[] args) {
+        CharCount charCount1 = new CharCount("aabbcc");
+        CharCount charCount2 = new CharCount("bcd");
+        charCount1.howManyCharsInCommon(charCount2);
+
+    }
     private final Map<Character, Integer> charCount = new HashMap<>();
 
     public CharCount(String s) {
@@ -37,7 +42,9 @@ public class CharCount {
      * @return 包含的所有字符集合
      */
     public Set<Character> chars() {
-        return charCount.keySet();
+        Set<Character> keySet = new HashSet<>();
+        keySet.addAll(charCount.keySet());
+        return keySet;
     }
 
     // 我和另外一个CharCount有多少个公共字符？ 例如，aabbcc和abcdef有3个公共字符: a/b/c，因此返回3
@@ -48,4 +55,5 @@ public class CharCount {
         theirChars.retainAll(myChars);
         return theirChars.size();
     }
+
 }
