@@ -1,7 +1,6 @@
 package com.github.hcsp.collection;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,12 +44,8 @@ public class CharCount {
     public int howManyCharsInCommon(CharCount anotherCharCount) {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
-        Set<Character> temp = new HashSet<>(theirChars);
 
-
-        // 问题在于retainAll方法会改变原Set的内容
-        // 这里改变了charCount2的keySet，直接导致charCount2也被改变了
-        temp.retainAll(myChars);
-        return temp.size();
+        theirChars.retainAll(myChars);
+        return theirChars.size();
     }
 }
