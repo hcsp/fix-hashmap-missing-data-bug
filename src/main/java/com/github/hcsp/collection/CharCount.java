@@ -1,17 +1,10 @@
 package com.github.hcsp.collection;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 public class CharCount {
-
-    public static void main(String[] args) {
-        CharCount charCount1 = new CharCount("aabbcc");
-        CharCount charCount2 = new CharCount("abcdef");
-        System.out.println(charCount1.count('d'));
-    }
     /**
      * 保存字符到其出现次数的映射。例如，aabbc这个字符串中，这个Map的值就是
      *
@@ -21,7 +14,6 @@ public class CharCount {
      * c -> 1
      * </pre>
      */
-
     private final Map<Character, Integer> charCount = new HashMap<>();
 
     public CharCount(String s) {
@@ -52,8 +44,8 @@ public class CharCount {
     public int howManyCharsInCommon(CharCount anotherCharCount) {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
-        Set<Character> newChars = new HashSet<>(theirChars);
-        newChars.retainAll(myChars);
-        return newChars.size();
+
+        theirChars.retainAll(myChars);
+        return theirChars.size();
     }
 }
