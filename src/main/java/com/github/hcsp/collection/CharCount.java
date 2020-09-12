@@ -1,10 +1,8 @@
 package com.github.hcsp.collection;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-//import java.util.stream.Collectors;
 
 public class CharCount {
     /**
@@ -45,21 +43,9 @@ public class CharCount {
     // 我和另外一个CharCount有多少个公共字符？ 例如，aabbcc和abcdef有3个公共字符: a/b/c，因此返回3
     public int howManyCharsInCommon(CharCount anotherCharCount) {
         Set<Character> myChars = chars();
-        // Set是Map的key的集合，修改Set会导致Map的key被修改
-//        Set<Character> theirChars = anotherCharCount.chars();
-
-        // fix: dump data to a new set
-        Set<Character> theirChars = new HashSet<>(anotherCharCount.chars());
+        Set<Character> theirChars = anotherCharCount.chars();
 
         theirChars.retainAll(myChars);
         return theirChars.size();
     }
-
-    // or
-//    public int howManyCharsInCommon(CharCount anotherCharCount) {
-//        Set<Character> myChars = chars();
-//        Set<Character> theirChars = anotherCharCount.chars();
-//
-//        return myChars.stream().filter(theirChars::contains).collect(Collectors.toSet()).size();
-//    }
 }
