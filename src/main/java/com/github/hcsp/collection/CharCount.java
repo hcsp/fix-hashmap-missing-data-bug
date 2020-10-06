@@ -1,8 +1,6 @@
 package com.github.hcsp.collection;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class CharCount {
     /**
@@ -45,7 +43,15 @@ public class CharCount {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
 
-        theirChars.retainAll(myChars);
-        return theirChars.size();
+        // clone theirCharts to newSet
+        Set<Character> newSet = new HashSet<Character>();
+
+        Iterator<Character> it = theirChars.iterator();
+        while (it.hasNext()) {
+            newSet.add(it.next());
+        }
+
+        newSet.retainAll(myChars);
+        return newSet.size();
     }
 }
