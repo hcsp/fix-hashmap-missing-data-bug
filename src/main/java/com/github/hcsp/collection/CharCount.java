@@ -1,7 +1,6 @@
 package com.github.hcsp.collection;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -38,29 +37,7 @@ public class CharCount {
      * @return 包含的所有字符集合
      */
     public Set<Character> chars() {
-//        保存到1个新的HashSet就不会有问题了
-        return new HashSet<>(charCount.keySet());
-
-//        return charCount.keySet();
-//        HashMap<Character, Integer> temp = new HashMap<>();
-//        try {
-//            BeanUtils.copyProperties( temp,charCount);
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        } catch (InvocationTargetException e) {
-//            e.printStackTrace();
-//        }
-//        return temp.keySet();
-
-//        HashSet<Character> sb = new HashSet<>();
-//        try {
-//            BeanUtils.copyProperties(charCount.keySet(), sb);
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        } catch (InvocationTargetException e) {
-//            e.printStackTrace();
-//        }
-//        return sb;
+        return charCount.keySet();
     }
 
     // 我和另外一个CharCount有多少个公共字符？ 例如，aabbcc和abcdef有3个公共字符: a/b/c，因此返回3
@@ -69,8 +46,6 @@ public class CharCount {
         Set<Character> theirChars = anotherCharCount.chars();
 
         theirChars.retainAll(myChars);
-//        直接操作Map的keySet会改变原有Map
-
         return theirChars.size();
     }
 }
