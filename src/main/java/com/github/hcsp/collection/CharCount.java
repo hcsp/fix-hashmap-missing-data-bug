@@ -17,6 +17,7 @@ public class CharCount {
      */
     private final Map<Character, Integer> charCount = new HashMap<>();
 
+
     public CharCount(String s) {
         for (int i = 0; i < s.length(); ++i) {
             char ch = s.charAt(i);
