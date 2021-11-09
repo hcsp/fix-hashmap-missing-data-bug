@@ -3,7 +3,6 @@ package com.github.hcsp.collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class CharCount {
     /**
@@ -28,11 +27,9 @@ public class CharCount {
         }
     }
 
-
     public int count(char ch) {
         return charCount.getOrDefault(ch, 0);
     }
-
 
     /**
      * 我到底包含哪些字符？
@@ -48,9 +45,7 @@ public class CharCount {
         Set<Character> myChars = chars();
         Set<Character> theirChars = anotherCharCount.chars();
 
-        //这一步方法调用使得theirChars发生了改变，只保留了和myChars的交集部分
-        //用stream求出交集
-        Set<Character> intersection = myChars.stream().filter(theirChars::contains).collect(Collectors.toSet());
-        return intersection.size();
+        theirChars.retainAll(myChars);
+        return theirChars.size();
     }
 }
