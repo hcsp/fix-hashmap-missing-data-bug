@@ -49,6 +49,5 @@ public class CharCount {
         Set<Character> theirChars = new HashSet<>(anotherCharCount.chars());
         theirChars.retainAll(myChars);
         return theirChars.size();
-
     }
 }
